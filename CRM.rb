@@ -7,7 +7,8 @@ class Database
 
 
 	def add(first_name, last_name, email, notes)
-
+		new_contact = Contact.new
+		@list.push(first_name, last_name, email, notes)
 
 	end
 
@@ -45,16 +46,25 @@ end
 
 class Contact
 
-	attr_accessor: @contact, :id, :first_name, :last_name, :email, :notes
+	attr_accessor: @contact, @id, @first_name, @last_name, @email, @notes
 
-	def initialize(id)
+	def initialize(id, first_name, last_name, email, notes)
+		@id = id
+		@first_name = first_name
+		@last_name = last_name
+		@email = email
+		@notes = notes
+	end
+
+	def set
 		@contact = 	{
-		:id => id
-		:first_name =>
+		:id => @id
+		:first_name => 
 		:last_name =>
 		:email =>
 		:notes =>
 		}
+
 	end
 
 
