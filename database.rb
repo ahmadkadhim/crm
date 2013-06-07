@@ -18,8 +18,9 @@ class Database
 
 	def invalid_attribute?(attribute)
 		@list.each do |x|
-			x.each_key{|y| true if y !== attribute}
+			x.each_key{|y| true if y != attribute}
 		end
+	end
 
 	def modify(name, attribute)
 		@list.each do | x |
@@ -29,6 +30,16 @@ class Database
 				x[attribute.to_sym] = new_name
 			end
 		end
+
+		#Will's clean code
+		# contact = @contacts_array.detect do |contact|
+		#  (contact.id == selection) || (contact.firstname == selection)  || contact. etc...
+		# end
+		# if contact
+		#  contact.send(attribute + '=', modification) rescue nil
+		# end
+		#   contact #good practice to return object at end of method
+
 		display_individual(new_name)
 	end
 
@@ -66,7 +77,6 @@ class Database
 	puts "\n \n"
 	what.each_pair {|key,value| puts "#{key}:  #{value}"}
 	puts "\n\n"
-
 
 	end
 

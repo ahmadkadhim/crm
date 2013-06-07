@@ -16,7 +16,6 @@ class Runner
 			puts "delete a contact"
 			puts "exit"
 			choice = gets.chomp.downcase
-			print "\e[2J\e[f"
 			case choice
 				when "add"
 					puts "Please enter the contact's first name"
@@ -28,6 +27,11 @@ class Runner
 					puts "Please enter any additional notes"
 					notes = gets.chomp
 					d.add(first_name, last_name, email, notes)
+					puts "\e[2J\e[f"
+					puts "=============================="
+					puts "Contact Successfully Added"
+					puts "=============================="
+
 				when "modify"
 					
 					puts "Please enter the name of the contact you want to modify"
@@ -39,7 +43,7 @@ class Runner
 					puts "Please confirm if #{attribute} is what you'd like to change? y/n"
 					confirmation = gets.chomp
 					d.modify(name, attribute) if confirmation == "y"
-					end
+					
 				when "display all"
 					d.display_all
 				when "display contact"
@@ -63,5 +67,5 @@ class Runner
 	end
 end
 
-
 Runner.run
+
