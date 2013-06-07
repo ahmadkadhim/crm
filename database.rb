@@ -1,5 +1,7 @@
 class Database
 
+
+
 	attr_accessor :list, :counter
 
 	def initialize
@@ -11,16 +13,23 @@ class Database
 		@counter += 1
 		new_contact = Contact.new
 		@list.push(new_contact.set(@counter, first_name, last_name, email, notes))
-		puts @list
+		display_individual(first_name)
 	end
+
+	def invalid_attribute?(attribute)
+		@list.each do |x|
+			x.each_key{|y| true if y !== attribute}
+		end
 
 	def modify(name, attribute)
 		@list.each do | x |
 			if x[:first_name] == name
 				puts "What would you like to change it to?"
-				x[attribute.to_sym] = gets.chomp
+				new_name = gets.chomp
+				x[attribute.to_sym] = new_name
 			end
 		end
+		display_individual(new_name)
 	end
 
 	def display_all
