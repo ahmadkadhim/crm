@@ -1,6 +1,5 @@
+
 class Database
-
-
 
 	attr_accessor :list, :counter
 
@@ -79,6 +78,5 @@ class Database
 	puts "\n\n"
 
 	end
-
 
 end

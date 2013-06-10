@@ -4,12 +4,11 @@ class Database
 
 	def initialize
 		@list = []
-
+	end
 
 	def add(first_name, last_name, email, notes)
 		new_contact = Contact.new
 		@list.push(first_name, last_name, email, notes)
-
 	end
 
 	def modify
